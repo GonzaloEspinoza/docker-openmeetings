@@ -10,7 +10,7 @@ COPY assets/om_ad.cfg $RED5_HOME/webapps/openmeetings/conf/
 
 RUN mkdir -p $RED5_HOME && \
     cd $RED5_HOME && \
-    wget http://apache.crihan.fr/dist/openmeetings/$VERSION/bin/apache-openmeetings-$VERSION.tar.gz && \
+    wget http://archive.apache.org/dist/openmeetings/$VERSION/bin/apache-openmeetings-$VERSION.tar.gz && \
     tar zxf apache-openmeetings-$VERSION.tar.gz
 
 RUN cat /etc/apt/sources.list | sed 's/^deb\s/deb-src /g' >> /etc/apt/sources.list && \
