@@ -2,7 +2,7 @@ FROM openjdk
 
 MAINTAINER Florian JUDITH <florian.judith.b@gmail.com>
 
-ENV VERSION 3.2.0
+ENV VERSION 3.2.1
 ENV RED5_HOME /opt/apache-openmeetings
 ENV TERM=xterm
 
