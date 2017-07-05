@@ -17,7 +17,6 @@ RUN cat /etc/apt/sources.list | sed 's/^deb\s/deb-src /g' >> /etc/apt/sources.li
     apt-get update && \
     apt-get install -y \
         slapd \
-        dialog \
         ldap-utils \
         libreoffice \
         ffmpeg \
@@ -53,6 +52,7 @@ RUN cd /tmp && ldconfig -v && \
     cd swftools-2013-04-09-1007 && \
     ./configure && make && make install && \
     ranlib /usr/local/lib/libjpeg.a && ldconfig /usr/local/lib
+
 
 # jodconverter
 RUN curl -L https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/jodconverter/jodconverter-core-3.0-beta-4-dist.zip -o /opt/jodconverter-core-3.0-beta-4-dist.zip && \
