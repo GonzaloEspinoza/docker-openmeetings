@@ -16,7 +16,6 @@ RUN mkdir -p $RED5_HOME && \
 RUN cat /etc/apt/sources.list | sed 's/^deb\s/deb-src /g' >> /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y \
-        slapd \
         ldap-utils \
         libreoffice \
         ffmpeg \
