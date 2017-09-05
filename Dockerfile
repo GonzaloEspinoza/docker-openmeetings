@@ -1,4 +1,4 @@
-FROM openjdk
+FROM openjdk:8
 
 MAINTAINER Florian JUDITH <florian.judith.b@gmail.com>
 
