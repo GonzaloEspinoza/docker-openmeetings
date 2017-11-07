@@ -38,8 +38,7 @@ RUN cd /tmp && \
     wget http://www.ijg.org/files/jpegsrc.v9a.tar.gz
 
 RUN cd /tmp && tar zxf freetype-2.4.0.tar.gz && \
-    tar zxf jpegsrc.v9a.tar.gz && \
-    tar zxf swftools-2013-04-09-1007.tar.gz
+    tar zxf jpegsrc.v9a.tar.gz
 
 RUN cd /tmp/jpeg-9a && \
     ./configure && make && make install
