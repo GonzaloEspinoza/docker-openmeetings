@@ -1,0 +1,16 @@
+version: '2'
+volumes:
+  - openmeetings-db
+services:
+  openmeetings-pg:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: openmeetings
+      POSTGRES_PASSWORD: V3ry1nS3cUr3P4ssW0rd
+      POSTGRES_USER: openmeetings
+    volumes:
+    - alfresco-db:/var/lib/postgresql/data
+    ports:
+    - 5432:5432/tcp
+  alfre
+  
