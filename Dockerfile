@@ -71,5 +71,5 @@ EXPOSE 5080 1935 8081 8100 8088 8443 5443
 
 WORKDIR ${RED5_HOME}
 
-ENTRYPOINT ["${RED5_HOME}/docker-entrypoint.sh"]
-CMD ["${RED5_HOME}/red5.sh"]
+ENTRYPOINT ["/usr/share/apache-openmeetings/docker-entrypoint.sh"]
+CMD ["/usr/share/apache-openmeetings/red5.sh"]
