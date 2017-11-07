@@ -1,17 +1,17 @@
-FROM openjdk:8
+FROM amd64/openjdk:8u151
 
-MAINTAINER Florian JUDITH <florian.judith.b@gmail.com>
+LABEL maintainer='Florian JUDITH <florian.judith.b@gmail.com>'
 
-ENV VERSION 3.3.0
-ENV RED5_HOME /opt/apache-openmeetings
-ENV TERM=xterm
+ENV VERSION='4.0.0'
+ENV RED5_HOME='/usr/share/apache-openmeetings'
+ENV TERM='xterm'
 
-COPY assets/om_ad.cfg $RED5_HOME/webapps/openmeetings/conf/
+COPY assets/om_ad.cfg ${RED5_HOME}/webapps/openmeetings/conf/
 
-RUN mkdir -p $RED5_HOME && \
-    cd $RED5_HOME && \
-    wget http://apache.crihan.fr/dist/openmeetings/$VERSION/bin/apache-openmeetings-$VERSION.tar.gz && \
-    tar zxf apache-openmeetings-$VERSION.tar.gz
+RUN mkdir -p ${RED5_HOME} && \
+    cd ${RED5_HOME} && \
+    wget http://apache.crihan.fr/dist/openmeetings/${VERSION}/bin/apache-openmeetings-${VERSION}.tar.gz && \
+    tar zxf apache-openmeetings-${VERSION}.tar.gz
 
 RUN cat /etc/apt/sources.list | sed 's/^deb\s/deb-src /g' >> /etc/apt/sources.list && \
     apt-get update && \
@@ -66,17 +66,18 @@ RUN chmod +x /tmp/ffmpeg-ubuntu-debian.sh && \
     /tmp/ffmpeg-ubuntu-debian.sh
 
 # Cleanup
-RUN rm -f apache-openmeetings-$VERSION.tar.gz && \
+RUN rm -f apache-openmeetings-${VERSION}.tar.gz && \
     rm -rf /tmp/swftools* && \
     rm -rf /tmp/jpeg* && \ 
     rm -rf /tmp/freetype* && \
     rm -rf /var/lib/apt/lists/*
 
-COPY docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
+COPY docker-entrypoint.sh ${RED5_HOME}/
+RUN chmod +x ${RED5_HOME}/docker-entrypoint.sh
 
 EXPOSE 5080 1935 8081 8100 8088 8443 5443
 
-WORKDIR $RED5_HOME
+WORKDIR ${RED5_HOME}
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["${RED5_HOME}/docker-entrypoint.sh"]
+CMD ["${RED5_HOME}/red5.sh"]

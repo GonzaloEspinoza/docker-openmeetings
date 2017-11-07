@@ -171,6 +171,5 @@ if [[ -v POSTGRES_ENV_GOSU_VERSION ]]; then
     cp $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/postgresql_persistence.xml $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/persistence.xml
 fi
 
-cd $RED5_HOME
+exec "$@"
 
-./red5.sh
