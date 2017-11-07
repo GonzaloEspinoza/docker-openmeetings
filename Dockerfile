@@ -2,6 +2,7 @@ FROM amd64/openjdk:8u151
 
 LABEL maintainer='Florian JUDITH <florian.judith.b@gmail.com>'
 
+ENV DEBIAN_FRONTEND="noninteractive"
 ENV VERSION='4.0.0'
 ENV RED5_HOME='/usr/share/apache-openmeetings'
 ENV TERM='xterm'
