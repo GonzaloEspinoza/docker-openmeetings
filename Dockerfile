@@ -34,7 +34,6 @@ COPY assets/jpeg.patch /tmp/jpeg.patch
 RUN apt-get install -y make g++ patch zlib1g-dev libgif-dev
 
 RUN cd /tmp && \
-    wget http://www.swftools.org/swftools-2013-04-09-1007.tar.gz && \
     wget http://download.savannah.gnu.org/releases/freetype/freetype-2.4.0.tar.gz && \
     wget http://www.ijg.org/files/jpegsrc.v9a.tar.gz
 
@@ -47,12 +46,6 @@ RUN cd /tmp/jpeg-9a && \
 
 RUN cd /tmp/freetype-2.4.0 && \
     ./configure && make && make install
-
-RUN cd /tmp && ldconfig -v && \
-    patch -p0 < /tmp/jpeg.patch && \
-    cd swftools-2013-04-09-1007 && \
-    ./configure && make && make install && \
-    ranlib /usr/local/lib/libjpeg.a && ldconfig /usr/local/lib
 
 
 # jodconverter
@@ -68,7 +61,6 @@ RUN chmod +x /tmp/ffmpeg-ubuntu-debian.sh && \
 
 # Cleanup
 RUN rm -f apache-openmeetings-${VERSION}.tar.gz && \
-    rm -rf /tmp/swftools* && \
     rm -rf /tmp/jpeg* && \ 
     rm -rf /tmp/freetype* && \
     rm -rf /var/lib/apt/lists/*
