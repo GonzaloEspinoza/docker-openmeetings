@@ -69,57 +69,101 @@ LDAP_USE_LOWER_CASE=${LDAP_USE_LOWER_CASE:-false}
 LDAP_IMPORT_QUERY=${LDAP_IMPORT_QUERY:-(objectClass=inetOrgPerson)}
 
 if [ "LDAP_FLAVOR" == 'ad' ]; then
-	LDAP_SEARCH_QUERY=(userPrincipalName=%1$s)
-	LDAP_USERDN_FORMAT=sAMAccountName=%s
-	LDAP_GROUP_QUEY=(objectClass=group)
-	LDAP_USER_ATTR_LOGIN=sAMAccountName
-	LDAP_IMPORT_QUERY=(&(objectclass=user)(userAccountControl:1.2.840.113556.1.4.803:=512))
-	LDAP_CONFIG_FILE=${LDAP_CONFIG_FILE:-$RED5_HOME/webapps/openmeetings/conf/om_ad.cfg}
+	LDAP_SEARCH_QUERY='(userPrincipalName=%1$s)'
+	LDAP_USERDN_FORMAT='sAMAccountName=%s'
+	LDAP_GROUP_QUEY='(objectClass=group)'
+	LDAP_USER_ATTR_LOGIN='sAMAccountName'
+	LDAP_IMPORT_QUERY='(&(objectclass=user)(userAccountControl:1.2.840.113556.1.4.803:=512))'
+	LDAP_CONFIG_FILE='${LDAP_CONFIG_FILE:-$RED5_HOME/webapps/openmeetings/conf/om_ad.cfg}'
 fi
 
-cfg_replace_option ldap_conn_host $LDAP_CONN_HOST $LDAP_CONFIG_FILE
-cfg_replace_option ldap_conn_port $LDAP_CONN_PORT $LDAP_CONFIG_FILE
-cfg_replace_option ldap_conn_secure $LDAP_CONN_SECURE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_admin_dn $LDAP_ADMIN_DN $LDAP_CONFIG_FILE
-cfg_replace_option ldap_passwd $LDAP_PASSWD $LDAP_CONFIG_FILE
-cfg_replace_option ldap_search_base $LDAP_SEARCH_BASE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_search_query $LDAP_SEARCH_QUERY $LDAP_CONFIG_FILE
-cfg_replace_option ldap_search_scope $LDAP_SEARCH_SCOPE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_auth_type $LDAP_AUTH_TYPE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_userdn_format $LDAP_USERDN_FORMAT $LDAP_CONFIG_FILE
-cfg_replace_option ldap_provisionning $LDAP_PROVISIONNING $LDAP_CONFIG_FILE
-cfg_replace_option ldap_deref_mode $LDAP_DEREF_MODE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_use_admin_to_get_attrs $LDAP_USE_ADMIN_TO_GET_ATTRS $LDAP_CONFIG_FILE
-cfg_replace_option ldap_sync_password_to_om $LDAP_SYNC_PASSWORD_TO_OM $LDAP_CONFIG_FILE
-cfg_replace_option ldap_group_mode $LDAP_GROUP_MODE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_group_query $LDAP_GROUP_QUERY $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_login $LDAP_USER_ATTR_LOGIN $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_lastname $LDAP_USER_ATTR_LASTNAME $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_firstname $LDAP_USER_ATTR_FIRSTNAME $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_mail $LDAP_USER_ATTR_MAIL $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_street $LDAP_USER_ATTR_STREET $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_additionalname $LDAP_USER_ATTR_ADDITIONALNAME $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_fax $LDAP_USER_ATTR_FAX $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_zip $LDAP_USER_ATTR_ZIP $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_country $LDAP_USER_ATTR_COUNTRY $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_town $LDAP_USER_ATTR_TOWN $LDAP_CONFIG_FILE
-cfg_replace_option ldap_user_attr_phone $LDAP_USER_ATTR_PHONE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_group_attr $LDAP_GROUP_ATTR $LDAP_CONFIG_FILE
-cfg_replace_option ldap_use_lower_case $LDAP_USE_LOWER_CASE $LDAP_CONFIG_FILE
-cfg_replace_option ldap_import_query $LDAP_IMPORT_QUERY $LDAP_CONFIG_FILE
+cfg_replace_option ldap_conn_host ${LDAP_CONN_HOST} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_conn_port $LDAP_CONN_PORT} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_conn_secure ${LDAP_CONN_SECURE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_admin_dn ${LDAP_ADMIN_DN} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_passwd ${LDAP_PASSWD} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_search_base ${LDAP_SEARCH_BASE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_search_query ${LDAP_SEARCH_QUERY} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_search_scope ${LDAP_SEARCH_SCOPE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_auth_type ${LDAP_AUTH_TYPE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_userdn_format ${LDAP_USERDN_FORMAT} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_provisionning ${LDAP_PROVISIONNING} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_deref_mode ${LDAP_DEREF_MODE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_use_admin_to_get_attrs ${LDAP_USE_ADMIN_TO_GET_ATTRS} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_sync_password_to_om ${LDAP_SYNC_PASSWORD_TO_OM} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_group_mode ${LDAP_GROUP_MODE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_group_query ${LDAP_GROUP_QUERY} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_login ${LDAP_USER_ATTR_LOGIN} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_lastname ${LDAP_USER_ATTR_LASTNAME} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_firstname ${LDAP_USER_ATTR_FIRSTNAME} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_mail ${LDAP_USER_ATTR_MAIL} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_street ${LDAP_USER_ATTR_STREET} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_additionalname ${LDAP_USER_ATTR_ADDITIONALNAME} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_fax ${LDAP_USER_ATTR_FAX} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_zip ${LDAP_USER_ATTR_ZIP} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_country ${LDAP_USER_ATTR_COUNTRY} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_town ${LDAP_USER_ATTR_TOWN} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_user_attr_phone ${LDAP_USER_ATTR_PHONE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_group_attr ${LDAP_GROUP_ATTR} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_use_lower_case ${LDAP_USE_LOWER_CASE} ${LDAP_CONFIG_FILE}
+cfg_replace_option ldap_import_query ${LDAP_IMPORT_QUERY} ${LDAP_CONFIG_FILE}
 
 
 # if we're linked to MySQL and thus have credentials already, let's use them
 if [[ -v MYSQL_ENV_GOSU_VERSION ]]; then
-    : ${DB_TYPE='mysql'}
-    : ${DB_USERNAME:=${MYSQL_ENV_MYSQL_USER:-root}}
-    if [ "$DB_USERNAME" = 'root' ]; then
-        : ${DB_PASSWORD:=$MYSQL_ENV_MYSQL_ROOT_PASSWORD}
-    fi
-    : ${DB_PASSWORD:=$MYSQL_ENV_MYSQL_PASSWORD}
-    : ${DB_NAME:=${MYSQL_ENV_MYSQL_DATABASE:-squashtm}}
-    : ${DB_URL="jdbc:mysql://mysql:3306/$DB_NAME"}
+    DB_TYPE='mysql'
+    DB_HOST=${DB_HOST:-'mysql'}
+    DB_PORT=${DB_PORT:-'3306'}
+    DB_USERNAME=${MYSQL_ENV_MYSQL_USER:-'root'}
 
+    if [ "$DB_USERNAME" = 'root' ]; then
+        DB_PASSWORD=${MYSQL_ENV_MYSQL_ROOT_PASSWORD}
+    fi
+    
+    DB_PASSWORD=${MYSQL_ENV_MYSQL_PASSWORD}
+    DB_NAME=${MYSQL_ENV_MYSQL_DATABASE:-'openmeetings'}
+
+    if [ -z "$DB_PASSWORD" ]; then
+        echo >&2 'error: missing required DB_PASSWORD environment variable'
+        echo >&2 '  Did you forget to -e DB_PASSWORD=... ?'
+        echo >&2
+        echo >&2 '  (Also of interest might be DB_USERNAME and DB_NAME.)'
+        exit 1
+    fi
+fi
+
+# if we're linked to PostgreSQL and thus have credentials already, let's use them
+if [[ -v POSTGRES_ENV_GOSU_VERSION ]]; then
+    DB_TYPE='postgresql'
+    DB_HOST='postgres'
+    DB_PORT='5432'
+    DB_USERNAME=${POSTGRES_ENV_POSTGRES_USER:-'postgres'}
+    
+    if [ "$DB_USERNAME" = 'postgres' ]; then
+        : ${DB_PASSWORD:='postgres' }
+    fi
+
+    DB_PASSWORD=${POSTGRES_ENV_POSTGRES_PASSWORD}
+    DB_NAME:=${POSTGRES_ENV_POSTGRES_DB:-'openmeetings'}
+
+    if [ -z "$DB_PASSWORD" ]; then
+        echo >&2 'error: missing required DB_PASSWORD environment variable'
+        echo >&2 '  Did you forget to -e DB_PASSWORD=... ?'
+        echo >&2
+        echo >&2 '  (Also of interest might be DB_USERNAME and DB_NAME.)'
+        exit 1
+    fi    
+fi
+
+DB_TYPE=${DB_TYPE:-'mysql'}
+DB_HOST=${DB_HOST:-'mysql'}
+DB_USERNAME=${DB_USERNAME:-'root'}
+DB_PASSWORD=${DB_PASSWORD:-'root'}
+DB_NAME=${DB_NAME:-'openmeetings'}
+DB_PORT=${DB_PORT:-'3306'}
+DB_URL="jdbc:${DB_TYPE}://${DB_HOST}:${DB_PORT}/$DB_NAME"
+
+if [[ "${DB_TYPE}" = "mysql" ]]; then
     cp $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/mysql_persistence.xml $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/mysql_persistence.xml.original
 
     xmlstarlet ed \
@@ -128,29 +172,9 @@ if [[ -v MYSQL_ENV_GOSU_VERSION ]]; then
         -u '//x:persistence//x:persistence-unit[@name="openmeetings"]//x:properties//x:property[@name="openjpa.ConnectionProperties"]/@value' \
         -v "DriverClassName=com.mysql.jdbc.Driver,Url=$DB_URL?autoReconnect=true&amp;useUnicode=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf-8&amp;connectionCollation=utf8_general_ci&amp;cachePrepStmts=true&amp;cacheCallableStatements=true&amp;cacheServerConfiguration=true&amp;useLocalSessionState=true&amp;elideSetAutoCommits=true&amp;alwaysSendSetIsolation=false&amp;enableQueryTimeouts=false&amp;prepStmtCacheSize=3000&amp;prepStmtCacheSqlLimit=1000&amp;useSSL=false,MaxActive=100,MaxWait=10000,TestOnBorrow=true,poolPreparedStatements=true,Username=$DB_USERNAME,Password=$DB_PASSWORD" \
         $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/mysql_persistence.xml
-
-    if [ -z "$DB_PASSWORD" ]; then
-        echo >&2 'error: missing required DB_PASSWORD environment variable'
-        echo >&2 '  Did you forget to -e DB_PASSWORD=... ?'
-        echo >&2
-        echo >&2 '  (Also of interest might be DB_USERNAME and DB_NAME.)'
-        exit 1
-    fi
-
+    
     cp $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/mysql_persistence.xml $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/persistence.xml
-fi
-
-# if we're linked to PostgreSQL and thus have credentials already, let's use them
-if [[ -v POSTGRES_ENV_GOSU_VERSION ]]; then
-    : ${DB_TYPE='postgresql'}
-    : ${DB_USERNAME:=${POSTGRES_ENV_POSTGRES_USER:-root}}
-    if [ "$DB_USERNAME" = 'postgres' ]; then
-        : ${DB_PASSWORD:='postgres' }
-    fi
-    : ${DB_PASSWORD:=$POSTGRES_ENV_POSTGRES_PASSWORD}
-    : ${DB_NAME:=${POSTGRES_ENV_POSTGRES_DB:-squashtm}}
-    : ${DB_URL="jdbc:postgresql://postgres:5432/$DB_NAME"}
-
+elif [[ "${DB_TYPE}" = "postgresql" ]]; then
     cp $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/postgresql_persistence.xml $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/postgresql_persistence.xml.original
     
     xmlstarlet ed \
@@ -159,14 +183,6 @@ if [[ -v POSTGRES_ENV_GOSU_VERSION ]]; then
         -u '//x:persistence//x:persistence-unit[@name="openmeetings"]//x:properties//x:property[@name="openjpa.ConnectionProperties"]/@value' \
         -v "DriverClassName=org.postgresql.Driver,Url=$DB_URL,MaxActive=100,MaxWait=10000,TestOnBorrow=true,poolPreparedStatements=true,Username=$DB_USERNAME,Password=$DB_PASSWORD" \
         $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/postgresql_persistence.xml
-
-    if [ -z "$DB_PASSWORD" ]; then
-        echo >&2 'error: missing required DB_PASSWORD environment variable'
-        echo >&2 '  Did you forget to -e DB_PASSWORD=... ?'
-        echo >&2
-        echo >&2 '  (Also of interest might be DB_USERNAME and DB_NAME.)'
-        exit 1
-    fi
 
     cp $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/postgresql_persistence.xml $RED5_HOME/webapps/openmeetings/WEB-INF/classes/META-INF/persistence.xml
 fi

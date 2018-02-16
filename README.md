@@ -93,8 +93,11 @@ Then follow the installation wizard.
 ![SIP Configuration](https://cdn.rawgit.com/fjudith/docker-openmeetings/master/img/6_SIP_Configuration.png)
 ![Finish](https://cdn.rawgit.com/fjudith/docker-openmeetings/master/img/7_Finish.png)
 
-# Flash and Java
+## Flash and Java
 
 Unfortunately, OpenMeetings needs Flash to share webcam and Java web plugin to share desktop (only for the sender). On linux, you may installe `icedtea-web` package and use Firefox to be able to send desktop.
 
 
+## Reference
+
+* https://cwiki.apache.org/confluence/display/OPENMEETINGS/Tutorials+for+installing+OpenMeetings+and+Tools
