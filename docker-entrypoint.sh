@@ -71,7 +71,7 @@ LDAP_IMPORT_QUERY=${LDAP_IMPORT_QUERY:-(objectClass=inetOrgPerson)}
 if [ "LDAP_FLAVOR" == 'ad' ]; then
 	LDAP_SEARCH_QUERY='(userPrincipalName=%1$s)'
 	LDAP_USERDN_FORMAT='sAMAccountName=%s'
-	LDAP_GROUP_QUEY='(objectClass=group)'
+	LDAP_GROUP_QUERY='(objectClass=group)'
 	LDAP_USER_ATTR_LOGIN='sAMAccountName'
 	LDAP_IMPORT_QUERY='(&(objectclass=user)(userAccountControl:1.2.840.113556.1.4.803:=512))'
 	LDAP_CONFIG_FILE='${LDAP_CONFIG_FILE:-$RED5_HOME/webapps/openmeetings/conf/om_ad.cfg}'
